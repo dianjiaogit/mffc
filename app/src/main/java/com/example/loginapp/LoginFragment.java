@@ -2,6 +2,7 @@ package com.example.loginapp;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -185,10 +186,6 @@ public class LoginFragment extends Fragment {
         }
     }
 
-    public void onLoginSuccess() {
-        button.setEnabled(true);
-        getActivity().finish();
-    }
 
     public void userNotExistsFailed() {
         Toast.makeText(getActivity().getBaseContext(), "Email is not Registered", Toast.LENGTH_LONG).show();
@@ -203,6 +200,8 @@ public class LoginFragment extends Fragment {
 
     public void onLoginSuccessed() {
         Log.d(TAG, "@@@@@@@Login Successed@@@@@@@@@@@");
+        Intent homeIntent = new Intent(getActivity(), HomeActivity.class);
+        startActivity(homeIntent);
     }
 
     public boolean validate() {
